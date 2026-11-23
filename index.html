@@ -1,4 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09090d"><title>LEGEND STORE | RGB Gold</title><style>
+ REQUEST","Name: "+($("name").value.trim()||"Not provided"),"Contact: "+($("contact").value.trim()||"Not provided"),""];let total=0;Object.entries(cart).forEach(([id,n])=>{let p=products.find(x=>x.id==+id);if(p){out.push(`${p.name} × ${n} — ${p.price==null?"Price on request":cash(p.price*n)}`);if(p.price!=null)total+=p.price*n}});out.push("","Listed subtotal: "+cash(total),"UPI ID: veena963@ptyes","Notes: "+($("notes").value.trim()||"None"),"Order request only. Payment must be verified manually.");return out.join("\n")}
+$("year").textContent=new Date().getFullYear();filters();render();renderCart();$("search").oninput=render;$("sort").onchange=render;$("openCart").onclick=$("viewCart").onclick=()=>show("cartModal");document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>hide(b.dataset.close));document.querySelectorAll(".modalback").forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});
+$("checkout").onclick=()=>{if(!Object.keys(cart).<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09090d"><title>LEGEND STORE | RGB Gold</title><style>
 :root{--bg:#09090d;--p:#15151d;--gold:#f5c76a;--muted:#aaa7b4;--line:#ffffff1a}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#35134c 0,transparent 38%),radial-gradient(ellipse at 95% 5%,#16404b 0,transparent 25%),var(--bg);color:#f8f5ef;font:16px system-ui,Arial}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,92%);margin:auto}header{position:sticky;top:0;z-index:5;background:#08080cdd;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:950;letter-spacing:1px}.brand span{color:var(--gold)}.brand small{display:block;font-size:9px;letter-spacing:4px;color:var(--muted)}.btn{border:1px solid #f5c76a66;border-radius:12px;padding:11px 15px;color:#fff;background:linear-gradient(120deg,#f5c76a22,#a64dff22);font-weight:800}.primary{background:linear-gradient(110deg,#ffe5a0,#c58b2c);color:#17110a;border:0}.hero{padding:70px 0}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.eyebrow{display:inline-block;border:1px solid #f5c76a66;color:#ffe6a6;padding:8px 12px;border-radius:99px;font-size:12px;letter-spacing:1.5px;font-weight:800}h1{font-size:clamp(42px,7vw,78px);line-height:.98;letter-spacing:-3px;margin:20px 0}.gold{background:linear-gradient(90deg,#fff2bd,#f5c76a,#fff8dc);color:transparent;background-clip:text}.lead{color:var(--muted);line-height:1.8;max-width:600px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.showcase{border:1px solid transparent;border-radius:24px;padding:26px;background:linear-gradient(var(--p),var(--p)) padding-box,conic-gradient(#f5c76a,#a64dff,#42e8ff,#ff4bc8,#f5c76a) border-box;box-shadow:0 20px 70px #0008}.crown{font-size:70px}.showcase h2{margin:8px 0}.showcase p{color:var(--muted);line-height:1.7}.section{padding:38px 0 55px}.heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:22px}.heading h2{font-size:clamp(28px,4vw,42px);margin:12px 0 0}.heading p{color:var(--muted)}.tools,.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.search,select,.field input,.field textarea{background:var(--p);color:white;border:1px solid var(--line);border-radius:11px;padding:12px}.search{flex:1;min-width:180px}.chip{border:1px solid var(--line);background:#ffffff08;color:var(--muted);border-radius:99px;padding:9px 12px}.chip.active,.chip:hover{color:#ffe6a6;border-color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(150deg,#191923,#101016);border:1px solid var(--line);border-radius:17px;padding:14px;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#f5c76a88;box-shadow:0 14px 35px #0008}.icon{height:105px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#f5c76a12,#a64dff18,#42e8ff10);font-size:45px}.tag{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#42e8ff;font-weight:800;margin-top:13px}.card h3{font-size:16px;min-height:38px}.card p{font-size:12px;color:var(--muted);min-height:34px;line-height:1.5}.price-row{display:flex;align-items:center;justify-content:space-between;gap:6px}.price{color:var(--gold);font-weight:900}.add{border:0;border-radius:9px;padding:9px 11px;background:var(--gold);font-weight:900}.notice{border:1px solid #f5c76a55;background:#f5c76a0c;color:#ddd4bf;border-radius:13px;padding:14px;line-height:1.6;font-size:13px;margin-top:22px}.notice strong{color:#ffe6a6}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{background:var(--p);border:1px solid var(--line);border-radius:16px;padding:20px}.feature b{font-size:25px}.feature p,details p{color:var(--muted);line-height:1.65;font-size:14px}details{padding:16px 0;border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:800}footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.modalback{display:none;position:fixed;inset:0;background:#000c;z-index:20;align-items:center;justify-content:center;padding:15px}.modalback.show{display:flex}.modal{width:min(600px,100%);max-height:90vh;overflow:auto;background:#12121a;border:1px solid #f5c76a66;border-radius:20px;padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center}.close{background:#ffffff0c;color:white;border:1px solid var(--line);padding:8px 12px;border-radius:9px}.line{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:12px 0}.line small{display:block;color:var(--muted)}.qty{display:flex;gap:6px;align-items:center}.qty button{background:#ffffff0b;color:white;border:1px solid var(--line);border-radius:6px;padding:4px 8px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;margin:20px 0}.field{display:grid;gap:7px;margin:12px 0}.field label,.hint{color:var(--muted);font-size:13px}.field textarea{min-height:70px}.copybox{background:#08080c;padding:13px;border:1px solid var(--line);border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}.empty{color:var(--muted);padding:25px;text-align:center}.hint{line-height:1.6}@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.navlinks{display:none}}@media(max-width:480px){.hero{padding:45px 0}.grid{gap:9px}.card{padding:10px}.icon{height:80px}.card h3{font-size:14px}.card p{font-size:11px}.heading{display:block}}
 </style></head><body>
 <header><nav class="wrap"><a class="brand" href="#"><span>◆</span> LEGEND STORE <small>RGB GOLD EDITION</small></a><a href="#shop">Shop</a><button class="btn" id="openCart">🛒 Cart <b id="count">0</b></button></nav></header>
@@ -17,7 +19,228 @@
   <p>After paying, continue with your order request. Payment is not automatically verified; the store owner will check it manually.</p>
 </div><h3>Order summary</h3><div class="copybox" id="summary"></div><div class="actions"><button class="btn primary" id="copy">Copy order summary</button><button class="btn" id="copyUPI">Copy UPI ID</button></div><p class="hint" id="status" aria-live="polite"></p><p class="hint">Store contact: <span id="ownerContact">Not configured yet.</span></p></div></div>
 <div class="modalback" id="adminModal"><div class="modal"><div class="modalhead"><h2>Owner demo tools</h2><button class="close" data-close="adminModal">✕</button></div><p class="hint">Local browser demo only. This is not secure admin authentication and changes do not sync to other devices.</p><div class="field"><label>Product name</label><input id="newName" placeholder="Digital add-on"></div><div class="field"><label>Price in ₹ (blank = price on request)</label><input id="newPrice" type="number" min="0" placeholder="199"></div><div class="field"><label>Category</label><select id="newCategory"><option>Discord Services</option><option>Gaming</option><option>Streaming</option><option>AI Tools</option><option>Profile Decorations</option></select></div><div class="field"><label>Emoji icon</label><input id="newIcon" placeholder="✨"></div><button class="btn primary" id="add">Add product</button><hr style="border-color:var(--line);margin:20px 0"><div class="field"><label>Store contact details</label><input id="ownerInput" placeholder="Discord username, WhatsApp, or email"></div><button class="btn" id="save">Save local settings</button><p class="hint">Do not enter passwords, tokens, UPI PINs, or other secrets here.</p><button class="chip" id="reset">Reset demo products</button></div></div>
+  
+// LEGEND STORE — SUPABASE ADMIN
+async function loadCloudProducts() {
+  const { data, error } = await db
+    .from("products")
+    .select("*")
+    .order("id");
+
+  if (error) {
+    alert("Could not load products: " + error.message);
+    return;
+  }
+
+  products = data.map(p => ({
+    id: Number(p.id),
+    name: p.name,
+    price: p.price == null ? null : Number(p.price),
+    category: p.category || "Gaming",
+    desc: p.description || "",
+    icon: "✨",
+    image_url: p.image_url || "",
+    stock: p.stock || 0
+  }));
+
+  save();
+  render();
+  renderCart();
+}
+
+function openAdmin() {
+  document.body.innerHTML = `
+    <main class="wrap section">
+      <h1><span class="gold">LEGEND STORE</span> ADMIN</h1>
+      <div id="adminArea">
+        <h2>Admin Login</h2>
+        <input id="adminEmail" class="search" placeholder="Admin email">
+        <br><br>
+        <input id="adminPassword" class="search" type="password" placeholder="Password">
+        <br><br>
+        <button class="btn primary" id="adminLogin">Login</button>
+        <p id="adminMessage" class="hint"></p>
+      </div>
+    </main>`;
+
+  document.getElementById("adminLogin").onclick = async () => {
+    const email = document.getElementById("adminEmail").value.trim();
+    const password = document.getElementById("adminPassword").value;
+    const message = document.getElementById("adminMessage");
+
+    const { error } = await db.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      message.textContent = error.message;
+      return;
+    }
+
+    showAdminDashboard();
+  };
+}
+
+async function showAdminDashboard() {
+  const { data: { user } } = await db.auth.getUser();
+
+  if (!user) {
+    await db.auth.signOut();
+    openAdmin();
+    return;
+  }
+
+  document.getElementById("adminArea").innerHTML = `
+    <p>Signed in: ${user.email}</p>
+    <h2>Product Management</h2>
+    <input id="pName" class="search" placeholder="Product name"><br><br>
+    <input id="pPrice" class="search" type="number" min="0" placeholder="Price in ₹"><br><br>
+    <input id="pCategory" class="search" placeholder="Category"><br><br>
+    <textarea id="pDescription" class="search" placeholder="Description"></textarea><br><br>
+    <input id="pStock" class="search" type="number" min="0" placeholder="Stock"><br><br>
+    <label>Product image: <input id="pImage" type="file" accept="image/*"></label><br><br>
+    <button class="btn primary" id="saveProduct">Add product</button>
+    <button class="btn" id="cancelEdit" style="display:none">Cancel edit</button>
+    <p id="adminMessage" class="hint"></p>
+    <h2>Existing products</h2>
+    <div id="adminProducts"></div>
+    <br><button class="btn" id="adminLogout">Log out</button>
+    <br><br><a class="btn" href="/">Back to store</a>
+  `;
+
+  let editingId = null;
+  let imageUrl = "";
+
+  async function refreshAdminProducts() {
+    const { data, error } = await db.from("products").select("*").order("id");
+
+    if (error) {
+      document.getElementById("adminMessage").textContent = error.message;
+      return;
+    }
+
+    document.getElementById("adminProducts").innerHTML = data.map(p => `
+      <div class="line">
+        <div><b>${esc(p.name)}</b><small>${cash(p.price)} · ${esc(p.category || "")}</small></div>
+        <div>
+          <button class="chip" data-edit="${p.id}">Edit</button>
+          <button class="chip" data-delete="${p.id}">Delete</button>
+        </div>
+      </div>
+    `).join("");
+
+    document.querySelectorAll("[data-edit]").forEach(b => {
+      b.onclick = () => {
+        const p = data.find(x => x.id == b.dataset.edit);
+        editingId = p.id;
+        document.getElementById("pName").value = p.name;
+        document.getElementById("pPrice").value = p.price ?? "";
+        document.getElementById("pCategory").value = p.category || "";
+        document.getElementById("pDescription").value = p.description || "";
+        document.getElementById("pStock").value = p.stock || 0;
+        imageUrl = p.image_url || "";
+        document.getElementById("saveProduct").textContent = "Save changes";
+        document.getElementById("cancelEdit").style.display = "inline-block";
+      };
+    });
+
+    document.querySelectorAll("[data-delete]").forEach(b => {
+      b.onclick = async () => {
+        if (!confirm("Delete this product?")) return;
+        const { error } = await db.from("products").delete().eq("id", b.dataset.delete);
+        if (error) alert(error.message);
+        else {
+          await loadCloudProducts();
+          await refreshAdminProducts();
+        }
+      };
+    });
+  }
+
+  document.getElementById("saveProduct").onclick = async () => {
+    const name = document.getElementById("pName").value.trim();
+    const priceText = document.getElementById("pPrice").value;
+    const file = document.getElementById("pImage").files[0];
+    const message = document.getElementById("adminMessage");
+
+    if (!name) {
+      message.textContent = "Please enter a product name.";
+      return;
+    }
+
+    if (file) {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const path = user.id + "/" + Date.now() + "-" + safeName;
+      const { error: uploadError } = await db.storage
+        .from("product-images")
+        .upload(path, file, { upsert: false });
+
+      if (uploadError) {
+        message.textContent = uploadError.message;
+        return;
+      }
+
+      const { data } = db.storage.from("product-images").getPublicUrl(path);
+      imageUrl = data.publicUrl;
+    }
+
+    const product = {
+      name,
+      price: priceText === "" ? null : Number(priceText),
+      category: document.getElementById("pCategory").value.trim() || "Gaming",
+      description: document.getElementById("pDescription").value.trim(),
+      stock: Math.max(0, Number(document.getElementById("pStock").value) || 0),
+      image_url: imageUrl
+    };
+
+    const result = editingId
+      ? await db.from("products").update(product).eq("id", editingId)
+      : await db.from("products").insert(product);
+
+    if (result.error) {
+      message.textContent = result.error.message;
+      return;
+    }
+
+    message.textContent = "Product saved!";
+    editingId = null;
+    imageUrl = "";
+    ["pName", "pPrice", "pCategory", "pDescription", "pStock", "pImage"].forEach(id => {
+      document.getElementById(id).value = "";
+    });
+    document.getElementById("saveProduct").textContent = "Add product";
+    document.getElementById("cancelEdit").style.display = "none";
+    await loadCloudProducts();
+    await refreshAdminProducts();
+  };
+
+  document.getElementById("cancelEdit").onclick = () => {
+    editingId = null;
+    imageUrl = "";
+    ["pName", "pPrice", "pCategory", "pDescription", "pStock", "pImage"].forEach(id => {
+      document.getElementById(id).value = "";
+    });
+    document.getElementById("saveProduct").textContent = "Add product";
+    document.getElementById("cancelEdit").style.display = "none";
+  };
+
+  document.getElementById("adminLogout").onclick = async () => {
+    await db.auth.signOut();
+    location.href = "/";
+  };
+
+  await refreshAdminProducts();
+}
+
+if (location.pathname.replace(/\/+$/, "") === "/admin") {
+  openAdmin();
+} else {
+  loadCloudProducts();
+}
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+  const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const defaults=[
 [1,"Discord Nitro ID",60,"Discord Services","💜","Demo listing. Verify legitimacy and terms."],[2,"Nitro Gift Link",600,"Discord Services","🎁","Demo listing. Verify legitimacy and terms."],[3,"Nitro Basic Gift Link",250,"Discord Services","🎀","Demo listing. Verify legitimacy and terms."],[4,"Server Boost",30,"Discord Services","🚀","Listed per boost; confirm availability."],[5,"Profile Decorations / Templates",null,"Profile Decorations","✨","Choose a style; confirm price first."],[6,"Netflix Subscription",130,"Streaming","🎬","Demo listing; resell only if authorized."],[7,"Crunchyroll Subscription",100,"Streaming","🍥","Demo listing; resell only if authorized."],[8,"Spotify Premium",150,"Streaming","🎧","Demo listing; resell only if authorized."],[9,"YouTube Premium",170,"Streaming","▶️","Demo listing; resell only if authorized."],[10,"AI Tool 1",null,"AI Tools","🤖","Ask for current price and authorized access."],[11,"AI Tool 2",null,"AI Tools","🧠","Ask for current price and authorized access."]];
 const K="legendRGBGold2";let products=JSON.parse(localStorage.getItem(K+"p")||"null")||defaults.map(a=>({id:a[0],name:a[1],price:a[2],category:a[3],icon:a[4],desc:a[5]}));let cart=JSON.parse(localStorage.getItem(K+"c")||"{}"),cat="All",cats=["All","Discord Services","Gaming","Streaming","AI Tools","Profile Decorations"];
@@ -28,9 +251,7 @@ function render(){let q=$("search").value.toLowerCase(),arr=products.filter(p=>(
 function renderCart(){let entries=Object.entries(cart).map(([id,qty])=>({p:products.find(p=>p.id==+id),qty})).filter(x=>x.p);$("cartItems").innerHTML=entries.length?entries.map(({p,qty})=>`<div class="line"><div><b>${esc(p.name)}</b><small>${cash(p.price)} each</small></div><div class="qty"><button data-minus="${p.id}">−</button>${qty}<button data-plus="${p.id}">+</button><button class="close" data-remove="${p.id}">×</button></div></div>`).join(""):`<div class="empty">Your cart is empty. Add a product to begin.</div>`;let total=entries.reduce((n,x)=>n+(x.p.price||0)*x.qty,0);$("total").textContent=cash(total);$("count").textContent=Object.values(cart).reduce((a,b)=>a+b,0);document.querySelectorAll("[data-minus]").forEach(b=>b.onclick=()=>qty(+b.dataset.minus,-1));document.querySelectorAll("[data-plus]").forEach(b=>b.onclick=()=>qty(+b.dataset.plus,1));document.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{delete cart[b.dataset.remove];save();renderCart()})}
 function qty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];save();renderCart()}
 function show(id){$(id).classList.add("show")}function hide(id){$(id).classList.remove("show")}
-function summary(){let out=["LEGEND STORE — ORDER REQUEST","Name: "+($("name").value.trim()||"Not provided"),"Contact: "+($("contact").value.trim()||"Not provided"),""];let total=0;Object.entries(cart).forEach(([id,n])=>{let p=products.find(x=>x.id==+id);if(p){out.push(`${p.name} × ${n} — ${p.price==null?"Price on request":cash(p.price*n)}`);if(p.price!=null)total+=p.price*n}});out.push("","Listed subtotal: "+cash(total),"UPI ID: veena963@ptyes","Notes: "+($("notes").value.trim()||"None"),"Order request only. Payment must be verified manually.");return out.join("\n")}
-$("year").textContent=new Date().getFullYear();filters();render();renderCart();$("search").oninput=render;$("sort").onchange=render;$("openCart").onclick=$("viewCart").onclick=()=>show("cartModal");document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>hide(b.dataset.close));document.querySelectorAll(".modalback").forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});
-$("checkout").onclick=()=>{if(!Object.keys(cart).length)return;hide("cartModal");$("summary").textContent=summary();show("checkoutModal")};["name","contact","notes"].forEach(id=>$(id).oninput=()=>$("summary").textContent=summary());
+function summary(){let out=["LEGEND STORE — ORDERlength)return;hide("cartModal");$("summary").textContent=summary();show("checkoutModal")};["name","contact","notes"].forEach(id=>$(id).oninput=()=>$("summary").textContent=summary());
 $("copy").onclick=async()=>{try{await navigator.clipboard.writeText(summary());$("status").textContent="Order summary copied. Send it to the store owner."}catch(e){$("status").textContent="Select and copy the summary above manually."}};$("copyUPI").onclick=async()=>{try{await navigator.clipboard.writeText("veena963@ptyes");$("status").textContent="UPI ID copied."}catch(e){$("status").textContent="UPI ID: veena963@ptyes"}};
 $("adminBtn").onclick=()=>{let s=JSON.parse(localStorage.getItem(K+"s")||"{}");$("ownerInput").value=s.contact||"";show("adminModal")};$("save").onclick=()=>{localStorage.setItem(K+"s",JSON.stringify({contact:$("ownerInput").value.trim()}));$("ownerContact").textContent=$("ownerInput").value.trim()||"Not configured yet.";alert("Saved in this browser only.")};$("add").onclick=()=>{let name=$("newName").value.trim(),price=$("newPrice").value;if(!name)return alert("Enter a product name.");products.push({id:Date.now(),name,price:price===""?null:Number(price),category:$("newCategory").value,icon:$("newIcon").value||"✨",desc:"Added through local demo tools. Confirm details before ordering."});save();render();$("newName").value="";$("newPrice").value="";$("newIcon").value="";alert("Added to this browser's demo catalogue.")};$("reset").onclick=()=>{if(confirm("Reset demo products and cart?")){products=defaults.map(a=>({id:a[0],name:a[1],price:a[2],category:a[3],icon:a[4],desc:a[5]}));cart={};save();render();renderCart();filters()}};let settings=JSON.parse(localStorage.getItem(K+"s")||"{}");if(settings.contact)$("ownerContact").textContent=settings.contact;
 </script></body></html>
